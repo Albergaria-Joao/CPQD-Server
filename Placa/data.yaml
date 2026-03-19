@@ -1,0 +1,9 @@
+path: C:\Users\vcapu\OneDrive\Área de Trabalho\Placa
+
+train: train/images
+val: valid/images
+test: test/images
+
+names:
+  0: Placa
+  1: PlacaM

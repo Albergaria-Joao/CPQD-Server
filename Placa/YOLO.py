@@ -7,7 +7,7 @@ def main():
 
     # treino
     model.train(
-        data=r"C:\caminho\para\PLACA\data.yaml",
+        data=r"C:\Users\jvalb\Documents\GitHub\CPQD-YOLO\Placa\data.yaml",
         epochs=100,
         imgsz=640,
         batch=16,
@@ -20,11 +20,11 @@ def main():
     model.val()
 
     # validação no conjunto de teste
-    model.val(data=r"C:\caminho\para\PLACA\data.yaml", split="test")
+    model.val(data=r"C:\Users\jvalb\Documents\GitHub\CPQD-YOLO\Placa\data.yaml", split="test")
 
     # predição salvando imagens de saída
     model.predict(
-        source=r"C:\caminho\para\PLACA\test\images",
+        source=r"C:\Users\jvalb\Documents\GitHub\CPQD-YOLO\Placa\test\images",
         conf=0.25,
         save=True
     )

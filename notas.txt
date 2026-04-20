@@ -1,0 +1,8 @@
+20/04 - Trigger para atualizar DB com planilha
+
+O script é criado na aba extensões > Apps Script, no Google Sheets.
+Lá, coloca-se o código de script_trigger.js, e clica no ícone de despertador 
+
+
+
+https://dashboard.ngrok.com/get-started/setup/windows p/ configurar o ngrok e colocar o localhost numa URL pública

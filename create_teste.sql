@@ -35,11 +35,12 @@ DROP TABLE IF EXISTS `cpqd_servidor_teste`.`liberacao` ;
 
 CREATE TABLE IF NOT EXISTS `cpqd_servidor_teste`.`liberacao` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `placa` VARCHAR(8) NULL,
+  `placa` VARCHAR(8) NOT NULL,
   `modelo` VARCHAR(45) NULL,
   `cor` VARCHAR(30) NULL,
   `empresa` VARCHAR(25) NULL,
-  PRIMARY KEY (`id`))
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `placa_UNIQUE` (`placa` ASC) VISIBLE)
 ENGINE = InnoDB;
 
 

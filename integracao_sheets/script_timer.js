@@ -2,16 +2,19 @@ function syncToMySQL() {
   var sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Dados");
   var data = sheet.getDataRange().getValues(); // Pega tudo
   var header = data.shift(); // Remove o cabeçalho
-  
-  var payload = data.map(function(row) {
-    return {
-      "id": row[0],     // Coluna A
-      "nome": row[1],   // Coluna B
-      "status": row[2]  // Coluna C
-    };
-  }).filter(row => row.id !== ""); // Ignora linhas vazias
 
-  var url = "http://SEU_IP_OU_NGROK/sync-batch";
+  var payload = data.map(function (row) {
+    return {
+      "nome": row[0],
+      "modelo": row[1],
+      "marca": row[2],
+      "cor": row[3],
+      "placa": String(row[4]).toUpperCase().trim(),
+      "empresa": row[5],
+    };
+  }).filter(row => row.placa !== "" && row.nome !== ""); // Ignora linhas vazias
+
+  var url = "https://hungry-easter-condiment.ngrok-free.dev/sync-sheet";
   var options = {
     "method": "post",
     "contentType": "application/json",

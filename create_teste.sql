@@ -35,7 +35,9 @@ DROP TABLE IF EXISTS `cpqd_servidor_teste`.`liberacao` ;
 
 CREATE TABLE IF NOT EXISTS `cpqd_servidor_teste`.`liberacao` (
   `id` INT NOT NULL AUTO_INCREMENT,
+  `nome` VARCHAR(50) NOT NULL,
   `placa` VARCHAR(8) NOT NULL,
+  `marca` VARCHAR(30) NULL,
   `modelo` VARCHAR(45) NULL,
   `cor` VARCHAR(30) NULL,
   `empresa` VARCHAR(25) NULL,

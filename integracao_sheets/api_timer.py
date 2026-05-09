@@ -10,9 +10,11 @@ DATABASE_URL = "mysql+pymysql://cco_cpqd:123456@localhost:3306/cpqd_servidor_tes
 engine = create_engine(DATABASE_URL)
 
 class RowData(BaseModel):
-    placa: str
+    nome: str
+    marca: str
     modelo: str
     cor: str
+    placa: str
     empresa: str
 
 
@@ -25,9 +27,11 @@ async def update_from_sheet(data: List[RowData]):
 
     
     upsert_query = text("""
-        INSERT INTO liberacao (placa, modelo, cor, empresa) 
-        VALUES (:placa, :modelo, :cor, :empresa)
+        INSERT INTO liberacao (nome, marca, modelo, cor, placa, empresa) 
+        VALUES ( :nome, :marca, :modelo, :cor, :placa, :empresa)
         ON DUPLICATE KEY UPDATE 
+            nome = VALUES(nome), 
+            marca = VALUES(marca),
             modelo = VALUES(modelo), 
             cor = VALUES(cor), 
             empresa = VALUES(empresa)
